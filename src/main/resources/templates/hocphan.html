@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Học Phần</title>
+    <link rel="stylesheet" th:href="@{/css/hocphan.css}">
+</head>
+<body>
+
+<h1>Danh sách Học Phần</h1>
+
+<a th:href="@{/hocphan/add}">
+    <button>Thêm Học Phần</button>
+</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Mã học phần</th>
+        <th>Tên học phần</th>
+        <th>Số tín chỉ</th>
+        <th>Số tiết lý thuyết</th>
+        <th>Số tiết thực hành</th>
+        <th>Loại học phần</th>
+        <th>Học phần tiên quyết
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="hp : ${hocphanList}">
+        <td th:text="${hp.maHp}"></td>
+        <td th:text="${hp.tenHp}"></td>
+        <td th:text="${hp.soTinChi}"></td>
+        <td th:text="${hp.soTietLyThuyet}"></td>
+        <td th:text="${hp.soTietThucHanh}"></td>
+        <td th:text="${hp.loaiHp}"></td>
+        <td th:text="${hp.hocPhanTienQuyet}"></td>
+        <td>
+            <a th:href="@{'/hocphan/edit/' + ${hp.id}}">
+                <button>Sửa</button>
+            </a>
+            <a th:href="@{'/hocphan/delete/' + ${hp.id}}"
+               onclick="return confirm('Bạn có chắc chắn muốn xóa học phần này?')">
+                <button>Xóa</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

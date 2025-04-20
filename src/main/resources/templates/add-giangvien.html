@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm / Sửa Giảng Viên</title>
+    <link rel="stylesheet" th:href="@{/css/add-giangvien.css}" />
+</head>
+<body>
+
+<!-- Tiêu đề form -->
+<h1 th:if="${giangvien.id != null}">Sửa Giảng Viên</h1>
+<h1 th:unless="${giangvien.id != null}">Thêm Giảng Viên</h1>
+
+<div class="form-container">
+    <form th:action="@{/giangvien/add}" th:object="${giangvien}" method="post">
+
+        <input type="hidden" th:field="*{id}" />
+
+        <label>Mã GV:</label>
+        <input type="text" th:field="*{maGv}" required/><br/>
+
+        <label>Họ tên:</label>
+        <input type="text" th:field="*{hoTen}" required/><br/>
+
+<!--        <label>Email:</label>-->
+<!--        <input type="email" th:field="*{email}" required/><br/>-->
+
+<!--        <label>Số điện thoại:</label>-->
+<!--        <input type="text" th:field="*{soDienThoai}" /><br/>-->
+
+        <label>Học vị:</label>
+        <input type="text" th:field="*{hocVi}" /><br/>
+
+        <label>Học hàm:</label>
+        <input type="text" th:field="*{hocHam}" /><br/>
+
+        <label>Trình độ:</label>
+        <input type="text" th:field="*{trinhDo}" /><br/>
+
+        <label>Đơn vị công tác:</label>
+        <input type="text" th:field="*{donViCongTac}" /><br/>
+
+        <label>Trạng thái:</label>
+        <select th:field="*{trangThai}">
+            <option value="1">Đang công tác</option>
+            <option value="0">Nghỉ việc</option>
+        </select><br/>
+
+        <label>Tài khoản người dùng:</label>
+        <select th:field="*{userId}">
+            <option th:each="user : ${users}"
+                    th:value="${user.id}"
+                    th:text="${user.username}">Chọn user</option>
+        </select><br/>
+
+
+        <button type="submit">Lưu</button>
+    </form>
+
+</div>
+
+<a th:href="@{/giangvien}">Quay lại danh sách</a>
+
+</body>
+
+</html>

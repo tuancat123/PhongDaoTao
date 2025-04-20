@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách người dùng</title>
+  <link rel="stylesheet" th:href="@{/css/user.css}">
+</head>
+<body>
+<h1>Danh sách người dùng</h1>
+
+<!-- Form tìm kiếm -->
+<form th:action="@{/users/search}" method="get" style="margin-bottom: 20px;">
+  <input type="text" name="keyword" placeholder="Tìm kiếm theo tên hoặc email..." />
+  <button type="submit">Tìm kiếm</button>
+  <a th:href="@{/users}"><button type="button">Reset</button></a>
+</form>
+
+<!-- Nút thêm người dùng -->
+<a th:href="@{/users/add}">
+  <button style="margin-bottom: 10px;">➕ Thêm người dùng</button>
+</a>
+
+<!-- Bảng danh sách -->
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Họ tên</th>
+    <th>Email</th>
+    <th>SĐT</th>
+    <th>Vai trò</th>
+    <th>Năm sinh</th>
+    <th>Trạng thái</th>
+    <th>Hành động</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.username}"></td>
+    <td th:text="${user.hoTen}"></td>
+    <td th:text="${user.email}"></td>
+    <td th:text="${user.soDienThoai}"></td>
+    <td th:text="${user.vaiTro}"></td>
+    <td th:text="${user.namSinh}"></td>
+    <td th:text="${user.trangThai == 1 ? 'Đang hoạt động' : 'Ngưng hoạt động'}"></td>
+    <td>
+      <a th:href="@{/users/edit/{id}(id=${user.id})}">
+        <button>✏️ Sửa</button>
+      </a>
+
+      <a th:href="@{'/users/delete/' + ${user.id}}"
+         onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?');">
+        <button style="color: red;">🗑️ Xóa</button>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

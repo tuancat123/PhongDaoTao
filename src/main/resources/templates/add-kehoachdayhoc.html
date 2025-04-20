@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm / Sửa Kế Hoạch Dạy Học</title>
+    <link rel="stylesheet" th:href="@{/css/add-kehoachdayhoc.css}">
+</head>
+<body>
+
+<h1 th:text="${#strings.isEmpty(keHoach.id) ? 'Thêm Kế Hoạch Dạy Học' : 'Chỉnh sửa Kế Hoạch Dạy Học'}"></h1>
+
+<form th:action="@{/kehoachdayhoc/save}" th:object="${keHoach}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>CTĐT ID:</label>
+    <input type="number" th:field="*{ctdtId}" required/><br>
+
+    <label>Học phần ID:</label>
+    <input type="number" th:field="*{hocPhanId}" required/><br>
+
+    <label>Học kỳ:</label>
+    <input type="number" th:field="*{hocKy}" required/><br>
+
+    <label>Năm học:</label>
+    <input type="number" th:field="*{namHoc}" required/><br>
+
+    <button type="submit">Lưu</button>
+    <a th:href="@{/kehoachdayhoc}"><button type="button">Quay lại</button></a>
+</form>
+
+</body>
+</html>

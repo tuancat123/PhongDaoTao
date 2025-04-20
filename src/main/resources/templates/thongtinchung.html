@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách CTĐT</title>
+    <link rel="stylesheet" th:href="@{/css/thongtinchung.css}">
+</head>
+<body>
+<h1>Danh sách Chương Trình Đào Tạo</h1>
+<a th:href="@{/thongtinchung/add}">Thêm mới</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Mã CTĐT</th>
+        <th>Tên CTĐT</th>
+        <th>Ngành</th>
+        <th>Mã Ngành</th>
+        <th>Khoa</th>
+        <th>Trình độ</th>
+        <th>Thời gian</th>
+        <th>Số TC</th>
+        <th>Năm BH</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${listThongTinChung}">
+        <td th:text="${item.maCtdt}"></td>
+        <td th:text="${item.tenCtdt}"></td>
+        <td th:text="${item.nganh}"></td>
+        <td th:text="${item.maNganh}"></td>
+        <td th:text="${item.khoaQuanLy}"></td>
+        <td th:text="${item.trinhDo}"></td>
+        <td th:text="${item.thoiGianDaoTao}"></td>
+        <td th:text="${item.tongTinChi}"></td>
+        <td th:text="${item.namBanHanh}"></td>
+        <td th:text="${item.trangThai}"></td>
+        <td>
+            <a th:href="@{/thongtinchung/edit/{id}(id=${item.id})}">Sửa</a> |
+            <a th:href="@{/thongtinchung/delete/{id}(id=${item.id})}" onclick="return confirm('Xoá?')">Xoá</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

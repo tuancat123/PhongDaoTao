@@ -1,0 +1,105 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Thêm người dùng</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/add-user.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Thêm Người Dùng Mới</h1>-->
+<!--<div class="form-container">-->
+<!--<form th:action="@{/users/save}" th:object="${user}" method="post">-->
+<!--    <label>Username:</label>-->
+<!--    <input type="text" th:field="*{username}" required/><br/>-->
+
+<!--    <label>Mật khẩu:</label>-->
+<!--    <input type="password" th:field="*{password}" required/><br/>-->
+
+<!--    <label>Họ tên:</label>-->
+<!--    <input type="text" th:field="*{hoTen}" required/><br/>-->
+
+<!--    <label>Email:</label>-->
+<!--    <input type="email" th:field="*{email}" required/><br/>-->
+
+<!--    <label>Số điện thoại:</label>-->
+<!--    <input type="text" th:field="*{soDienThoai}" /><br/>-->
+
+<!--    <label>Vai trò:</label>-->
+<!--    <select th:field="*{vaiTro}">-->
+<!--        <option value="Admin">Admin</option>-->
+<!--        <option value="Giảng viên">Giảng viên</option>-->
+<!--        <option value="Sinh viên">Sinh viên</option>-->
+<!--    </select><br/>-->
+
+<!--    <label>Năm sinh:</label>-->
+<!--    <input type="number" th:field="*{namSinh}" /><br/>-->
+
+<!--    <label>Trạng thái:</label>-->
+<!--    <select th:field="*{trangThai}">-->
+<!--        <option value="1">Đang hoạt động</option>-->
+<!--        <option value="0">Ngưng hoạt động</option>-->
+<!--    </select><br/>-->
+
+<!--    <button type="submit">Lưu</button>-->
+<!--</form>-->
+<!--</div>-->
+
+<!--<a th:href="@{/users}">Quay lại danh sách</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.id} != null ? 'Sửa người dùng' : 'Thêm người dùng'">Người dùng</title>
+    <link rel="stylesheet" th:href="@{/css/add-user.css}">
+</head>
+<body>
+
+<h1 th:text="${user.id} != null ? 'Sửa người dùng' : 'Thêm người dùng mới'">Người dùng</h1>
+
+<div class="form-container">
+    <form th:action="@{/users/saveOrEdit}" th:object="${user}" method="post">
+        <!-- Dùng để xác định có đang sửa không -->
+        <input type="hidden" th:field="*{id}"/>
+
+        <label>Username:</label>
+        <input type="text" th:field="*{username}" required/><br/>
+
+        <label>Mật khẩu:</label>
+        <input type="password" th:field="*{password}" required/><br/>
+
+        <label>Họ tên:</label>
+        <input type="text" th:field="*{hoTen}" required/><br/>
+
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required/><br/>
+
+        <label>Số điện thoại:</label>
+        <input type="text" th:field="*{soDienThoai}" /><br/>
+
+        <label>Vai trò:</label>
+        <select th:field="*{vaiTro}">
+            <option value="Admin">Admin</option>
+            <option value="Giảng viên">Giảng viên</option>
+            <option value="Sinh viên">Sinh viên</option>
+        </select><br/>
+
+        <label>Năm sinh:</label>
+        <input type="number" th:field="*{namSinh}" /><br/>
+
+        <label>Trạng thái:</label>
+        <select th:field="*{trangThai}">
+            <option value="1">Đang hoạt động</option>
+            <option value="0">Ngưng hoạt động</option>
+        </select><br/>
+
+        <button type="submit" th:text="${user.id} != null ? 'Cập nhật' : 'Thêm mới'">Lưu</button>
+    </form>
+</div>
+
+<a th:href="@{/users}">⬅️ Quay lại danh sách</a>
+
+</body>
+</html>

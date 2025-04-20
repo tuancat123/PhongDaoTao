@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Giảng Viên</title>
+    <link rel="stylesheet" th:href="@{/css/giangvien.css}">
+</head>
+<body>
+<h1>Danh sách Giảng Viên</h1>
+
+<!-- Nút thêm mới -->
+<a th:href="@{/giangvien/add}">➕ Thêm Giảng Viên</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Mã GV</th>
+        <th>Họ tên</th>
+<!--        <th>Email</th>-->
+<!--        <th>SĐT</th>-->
+        <th>Học vị</th>
+        <th>Học hàm</th>
+        <th>Trình độ</th>
+        <th>Đơn vị công tác</th>
+        <th>Trạng thái</th>
+        <th>Thao tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="gv : ${giangviens}">
+        <td th:text="${gv.maGv}"></td>
+        <td th:text="${gv.hoTen}"></td>
+<!--        <td th:text="${gv.email}"></td>-->
+<!--        <td th:text="${gv.soDienThoai}"></td>-->
+        <td th:text="${gv.hocVi}"></td>
+        <td th:text="${gv.hocHam}"></td>
+        <td th:text="${gv.trinhDo}"></td>
+        <td th:text="${gv.donViCongTac}"></td>
+        <td th:text="${gv.trangThai} == '1' ? 'Đang công tác' : 'Nghỉ việc'"></td>
+        <td>
+            <a th:href="@{'/giangvien/edit/' + ${gv.id}}">✏️ Sửa</a> |
+            <a th:href="@{'/giangvien/delete/' + ${gv.id}}"
+               onclick="return confirm('Bạn có chắc muốn xóa giảng viên này?');">🗑️ Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Sửa Nhóm Kiến Thức</title>
+  <link rel="stylesheet" th:href="@{/css/add-nhomkienthuc.css}">
+</head>
+<body>
+
+<h1 th:text="${#strings.isEmpty(nkt.id) ? 'Thêm Nhóm Kiến Thức' : 'Chỉnh sửa Nhóm Kiến Thức'}"></h1>
+
+<form th:action="@{/khoikienthuc/save}" th:object="${nkt}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <label>Mã nhóm:</label>
+  <input type="text" th:field="*{maNhom}" required/><br>
+
+  <label>Tên nhóm:</label>
+  <input type="text" th:field="*{tenNhom}" required/><br>
+
+  <label>Trạng thái:</label>
+  <input type="text" th:field="*{trangThai}"/><br>
+
+  <button type="submit">Lưu</button>
+  <a th:href="@{/khoikienthuc}">
+    <button type="button">Quay lại</button>
+  </a>
+</form>
+
+</body>
+</html>

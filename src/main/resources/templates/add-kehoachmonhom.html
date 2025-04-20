@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Sửa Kế Hoạch Mở Nhóm</title>
+  <link rel="stylesheet" th:href="@{/css/add-kehoachmonhom.css}">
+</head>
+<body>
+<h1 th:text="${#strings.isEmpty(keHoach.id) ? 'Thêm Kế Hoạch Mở Nhóm' : 'Chỉnh sửa Kế Hoạch Mở Nhóm'}"></h1>
+
+<form th:action="@{/kehoachmonhom/save}" th:object="${keHoach}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <label>Mã nhóm:</label>
+  <input type="text" th:field="*{maNhomLop}" required/><br>
+
+  <label>Mã học phần:</label>
+  <input type="text" th:field="*{hocPhanId}" required/><br>
+
+  <label>Năm học:</label>
+  <input type="text" th:field="*{namHoc}" required/><br>
+
+  <label>Học kỳ:</label>
+  <select th:field="*{hocKy}" required>
+    <option th:value="1">Học kỳ 1</option>
+    <option th:value="2">Học kỳ 2</option>
+    <option th:value="3">Học kỳ 3</option>
+    <option th:value="4">Học kỳ 4</option>
+    <option th:value="5">Học kỳ 5</option>
+    <option th:value="6">Học kỳ 6</option>
+    <option th:value="7">Học kỳ 7</option>
+    <option th:value="8">Học kỳ 8</option>
+  </select><br>
+
+  <label>Sĩ số:</label>
+  <input type="number" th:field="*{siSo}" required/><br>
+
+  <label>Thời gian bắt đầu:</label>
+  <input type="date" th:field="*{thoiGianBatDau}" required/><br>
+
+  <label>Thời gian kết thúc:</label>
+  <input type="date" th:field="*{thoiGianKetThuc}" required/><br>
+
+  <label>Trạng thái:</label>
+  <select th:field="*{trangThai}">
+    <option value="">-- Chọn trạng thái --</option>
+    <option th:value="'Đang mở'">Đang mở</option>
+    <option th:value="'Đã kết thúc'">Đã kết thúc</option>
+    <option th:value="'Tạm dừng'">Tạm dừng</option>
+  </select><br>
+
+  <button type="submit">💾 Lưu</button>
+  <a th:href="@{/kehoachmonhom}">
+    <button type="button">⬅️ Quay lại</button>
+  </a>
+</form>
+</body>
+</html>

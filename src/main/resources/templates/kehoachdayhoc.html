@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách Kế Hoạch Dạy Học</title>
+  <link rel="stylesheet" th:href="@{/css/KeHoachDayHoc.css}">
+</head>
+<body>
+
+<h1>Danh sách Kế Hoạch Dạy Học</h1>
+
+<div class="top-actions">
+  <a th:href="@{/kehoachdayhoc/add}" class="btn btn-add">+ Thêm kế hoạch mới</a>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>CTĐT</th>
+    <th>Học phần</th>
+    <th>Học kỳ</th>
+    <th>Năm học</th>
+    <th>Hành động</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="kh : ${keHoachList}">
+    <td th:text="${kh.id}"></td>
+    <td th:text="${kh.ctdtId}"></td>
+    <td th:text="${kh.hocPhanId}"></td>
+    <td th:text="${kh.hocKy}"></td>
+    <td th:text="${kh.namHoc}"></td>
+    <td>
+      <a th:href="@{'/kehoachdayhoc/edit/' + ${kh.id}}" class="btn btn-edit">Sửa</a>
+      <a th:href="@{'/kehoachdayhoc/delete/' + ${kh.id}}" class="btn btn-delete" onclick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

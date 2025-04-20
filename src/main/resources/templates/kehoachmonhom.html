@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Kế Hoạch Mở Nhóm</title>
+    <link rel="stylesheet" th:href="@{/css/KeHoachMoNhom.css}">
+</head>
+<body>
+<h1>Danh sách Kế Hoạch Mở Nhóm</h1>
+
+<a th:href="@{/kehoachmonhom/add}" class="btn-add">➕ Thêm kế hoạch mới</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Mã nhóm</th>
+        <th>Mã học phần</th>
+        <th>Năm học</th>
+        <th>Học kỳ</th>
+        <th>Sĩ số</th>
+        <th>Bắt đầu</th>
+        <th>Kết thúc</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="kh : ${keHoachMoNhomList}">
+        <td th:text="${kh.id}"></td>
+        <td th:text="${kh.maNhomLop}"></td>
+        <td th:text="${kh.hocPhanId}"></td>
+        <td th:text="${kh.namHoc}"></td>
+        <td th:text="${kh.hocKy}"></td>
+        <td th:text="${kh.siSo}"></td>
+        <td th:text="${kh.thoiGianBatDau}"></td>
+        <td th:text="${kh.thoiGianKetThuc}"></td>
+        <td th:text="${kh.trangThai}"></td>
+        <td>
+            <a th:href="@{'/kehoachmonhom/edit/' + ${kh.id}}">✏️</a>
+            <a th:href="@{'/kehoachmonhom/delete/' + ${kh.id}}" onclick="return confirm('Bạn chắc chắn muốn xóa?')">🗑️</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

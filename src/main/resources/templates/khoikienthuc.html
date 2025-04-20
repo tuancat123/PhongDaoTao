@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách Nhóm Kiến Thức</title>
+  <link rel="stylesheet" th:href="@{/css/KhoiKienThuc.css}">
+</head>
+<body>
+
+<h1>Danh sách Nhóm Kiến Thức</h1>
+
+<a th:href="@{/khoikienthuc/add}">
+  <button>Thêm Nhóm Kiến Thức</button>
+</a>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Mã Nhóm</th>
+    <th>Tên Nhóm</th>
+    <th>Trạng Thái</th>
+    <th>Hành Động</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="nkt : ${khoiKienThucList}">
+    <td th:text="${nkt.maNhom}"></td>
+    <td th:text="${nkt.tenNhom}"></td>
+    <td th:text="${nkt.trangThai}"></td>
+    <td>
+      <a th:href="@{'/khoikienthuc/edit/' + ${nkt.id}}">
+        <button>Sửa</button>
+      </a>
+      <a th:href="@{'/khoikienthuc/delete/' + ${nkt.id}}"
+         onclick="return confirm('Bạn có chắc chắn muốn xóa nhóm kiến thức này?')">
+        <button>Xóa</button>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

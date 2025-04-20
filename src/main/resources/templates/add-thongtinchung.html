@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thêm CTĐT</title>
+  <link rel="stylesheet" th:href="@{/css/add-thongtinchung.css}">
+</head>
+<body>
+<h1 th:text="${#strings.isEmpty(ttc.id) ? 'Thêm CTĐT' : 'Sửa CTĐT'}"></h1>
+
+<form th:action="@{/thongtinchung/save}" th:object="${ttc}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <label>Mã CTĐT:</label>
+  <input type="text" th:field="*{maCtdt}" required/><br>
+  <label>Tên CTĐT:</label>
+  <input type="text" th:field="*{tenCtdt}" required/><br>
+  <label>Ngành:</label>
+  <input type="text" th:field="*{nganh}"/><br>
+  <label>Mã ngành:</label>
+  <input type="text" th:field="*{maNganh}"/><br>
+  <label>Khoa quản lý:</label>
+  <input type="text" th:field="*{khoaQuanLy}"/><br>
+  <label>Hệ đào tạo:</label>
+  <input type="text" th:field="*{heDaoTao}"/><br>
+  <label>Trình độ:</label>
+  <input type="text" th:field="*{trinhDo}"/><br>
+  <label>Tổng tín chỉ:</label>
+  <input type="number" th:field="*{tongTinChi}"/><br>
+  <label>Thời gian đào tạo:</label>
+  <input type="text" th:field="*{thoiGianDaoTao}"/><br>
+  <label>Năm ban hành:</label>
+  <input type="number" th:field="*{namBanHanh}"/><br>
+  <label>Trạng thái:</label>
+  <input type="text" th:field="*{trangThai}"/><br>
+
+  <button type="submit">Lưu</button>
+  <a th:href="@{/thongtinchung}"><button type="button">Quay lại</button></a>
+</form>
+</body>
+</html>

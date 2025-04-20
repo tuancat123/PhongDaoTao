@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm / Sửa Học Phần</title>
+    <link rel="stylesheet" th:href="@{/css/add-hocphan.css}">
+</head>
+<body>
+
+<h1 th:text="${hocphan.id == null ? 'Thêm Học Phần' : 'Chỉnh sửa Học Phần'}"></h1>
+
+<form th:action="@{/hocphan/save}" th:object="${hocphan}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Mã học phần:</label>
+    <input type="text" th:field="*{maHp}" required/><br>
+
+    <label>Tên học phần:</label>
+    <input type="text" th:field="*{tenHp}" required/><br>
+
+    <label>Số tín chỉ:</label>
+    <input type="number" th:field="*{soTinChi}" required/><br>
+
+    <label>Số tiết lý thuyết:</label>
+    <input type="number" th:field="*{soTietLyThuyet}" required/><br>
+
+    <label>Số tiết thực hành:</label>
+    <input type="number" th:field="*{soTietThucHanh}" required/><br>
+
+    <label>Nhóm ID:</label>
+    <input type="number" th:field="*{nhomId}"/><br>
+
+    <label>Loại học phần:</label>
+    <input type="text" th:field="*{loaiHp}" /><br>
+
+    <label>Học phần tiên quyết:</label>
+    <input type="text" th:field="*{hocPhanTienQuyet}" /><br>
+
+    <button type="submit">Lưu</button>
+    <a th:href="@{/hocphan}">
+        <button type="button">Quay lại</button>
+    </a>
+</form>
+
+</body>
+</html>
