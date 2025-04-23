@@ -7,10 +7,7 @@ import com.example.phongdaotao.Service.KhoiKienThucService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +21,22 @@ public class HocPhanController {
 
     @GetMapping("/hocphan")
     public String showHocPhanList(Model model) {
-        model.addAttribute("hocphanList", hocPhanService.getAllHocPhan());
+        List<HocPhan> list = hocPhanService.getAllHocPhan();
+        List<KhoiKienThuc> nhomList = khoiKienThucService.getAll(); // cần service này
+        model.addAttribute("hocphanList", list);
+        model.addAttribute("nhomList", nhomList);
         return "hocphan";
     }
+
+    @GetMapping("/hocphan/nhom")
+    public String getHocPhanTheoNhom(@RequestParam("nhomId") int nhomId, Model model) {
+        List<HocPhan> list = hocPhanService.getHocPhanTheoNhom(nhomId);
+        List<KhoiKienThuc> nhomList = khoiKienThucService.getAll();
+        model.addAttribute("hocphanList", list);
+        model.addAttribute("nhomList", nhomList);
+        return "hocphan";
+    }
+
 
     // Hiển thị form thêm mới
     @GetMapping("/hocphan/add")
@@ -59,16 +69,6 @@ public class HocPhanController {
         hocPhanService.deleteHocPhanById(id);
         return "redirect:/hocphan";
     }
-
-//    @GetMapping("/nhom/{nhomId}")
-//    public String getHocPhanByNhom(@PathVariable int nhomId, Model model) {
-//        List<HocPhan> hocPhans = hocPhanService.getHocPhanTheoNhom(nhomId);
-//        KhoiKienThuc nhom = khoiKienThucService.getById(nhomId);
-//
-//        model.addAttribute("hocPhanList", hocPhans);
-//        model.addAttribute("nhom", nhom);
-//        return "hocphan-theo-nhom";
-//    }
 
 
 }

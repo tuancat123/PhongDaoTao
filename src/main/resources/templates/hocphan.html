@@ -9,6 +9,17 @@
 
 <h1>Danh sách Học Phần</h1>
 
+<form th:action="@{/hocphan/nhom}" method="get">
+    <label for="nhomId">Chọn nhóm kiến thức:</label>
+    <select name="nhomId" id="nhomId">
+        <option th:each="nhom : ${nhomList}"
+                th:value="${nhom.id}"
+                th:text="${nhom.tenNhom}">
+        </option>
+    </select>
+    <button type="submit">Lọc</button>
+</form>
+
 <a th:href="@{/hocphan/add}">
     <button>Thêm Học Phần</button>
 </a>

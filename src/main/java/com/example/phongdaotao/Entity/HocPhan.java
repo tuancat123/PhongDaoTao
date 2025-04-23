@@ -25,8 +25,8 @@ public class HocPhan {
     @Column(name = "soTietThucHanh")
     private int soTietThucHanh;
 
-    @Column(name = "nhomId")
-    private Integer nhomId;
+//    @Column(name = "nhomId")
+//    private Integer nhomId;
 
     @Column(name = "loaiHp", length = 50)
     private String loaiHp;
@@ -34,6 +34,9 @@ public class HocPhan {
     @Column(name = "hocPhanTienQuyet", length = 255)
     private String hocPhanTienQuyet;
 
+    @ManyToOne
+    @JoinColumn(name = "nhomId")
+    private KhoiKienThuc nhomKienThuc;
 
 
 
@@ -87,13 +90,13 @@ public class HocPhan {
         this.soTietThucHanh = soTietThucHanh;
     }
 
-    public Integer getNhomId() {
-        return nhomId;
-    }
-
-    public void setNhomId(Integer nhomId) {
-        this.nhomId = nhomId;
-    }
+//    public Integer getNhomId() {
+//        return nhomId;
+//    }
+//
+//    public void setNhomId(Integer nhomId) {
+//        this.nhomId = nhomId;
+//    }
 
     public String getLoaiHp() {
         return loaiHp;
@@ -110,4 +113,13 @@ public class HocPhan {
     public void setHocPhanTienQuyet(String hocPhanTienQuyet) {
         this.hocPhanTienQuyet = hocPhanTienQuyet;
     }
+
+    public KhoiKienThuc getNhomKienThuc() {
+        return nhomKienThuc;
+    }
+
+    public void setNhomKienThuc(KhoiKienThuc nhomKienThuc) {
+        this.nhomKienThuc = nhomKienThuc;
+    }
+
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ThongTinChungService {
@@ -21,11 +22,17 @@ public class ThongTinChungService {
         repository.save(entity);
     }
 
+//    public ThongTinChung getById(int id) {
+//        return repository.findById(id).orElse(null);
+//    }
     public ThongTinChung getById(int id) {
-        return repository.findById(id).orElse(null);
+        Optional<ThongTinChung> optional = repository.findById(id);
+        return optional.orElse(null);
     }
 
     public void deleteById(int id) {
         repository.deleteById(id);
     }
+
+
 }

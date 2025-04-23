@@ -26,9 +26,11 @@ public class HocPhanService {
     // Xóa học phần theo ID
     public void deleteHocPhanById(int id) {hocPhanRepository.deleteById(id);}
 
-//    public List<HocPhan> getHocPhanTheoNhom(int nhomId) {
+    public List<HocPhan> getHocPhanTheoNhom(int nhomId) {
 //        return hocPhanRepository.findByNhomId(nhomId);
-//    }
+        return hocPhanRepository.findByNhomKienThuc_Id(nhomId);
+    }
+
 
 }
 

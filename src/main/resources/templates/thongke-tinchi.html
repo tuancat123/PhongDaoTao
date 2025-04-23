@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thống kê tín chỉ</title>
+  <link rel="stylesheet" th:href="@{/css/thongke.css}">
+</head>
+<body>
+<h2>Thống kê số tín chỉ theo nhóm kiến thức</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Tên nhóm</th>
+    <th>Số TC bắt buộc</th>
+    <th>Số TC tự chọn</th>
+    <th>Tổng số TC</th> <!-- thêm -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item : ${thongKeList}">
+    <td th:text="${item.tenNhom}"></td>
+    <td th:text="${item.soTinChiBatBuoc}"></td>
+    <td th:text="${item.soTinChiTuChon}"></td>
+    <td th:text="${item.tongSoTinChi}"></td> <!-- thêm -->
+  </tr>
+  </tbody>
+</table>
+
+
+<a href="/khoikienthuc">Quay lại danh sách khối kiến thức</a>
+</body>
+</html>

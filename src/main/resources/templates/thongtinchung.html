@@ -37,7 +37,9 @@
         <td th:text="${item.trangThai}"></td>
         <td>
             <a th:href="@{/thongtinchung/edit/{id}(id=${item.id})}">Sửa</a> |
-            <a th:href="@{/thongtinchung/delete/{id}(id=${item.id})}" onclick="return confirm('Xoá?')">Xoá</a>
+            <a th:href="@{/thongtinchung/delete/{id}(id=${item.id})}" onclick="return confirm('Xoá?')">Xoá</a> |
+            <a th:href="@{/thongtinchung/detail/{id}(id=${item.id})}">Xem</a> |
+
         </td>
     </tr>
     </tbody>

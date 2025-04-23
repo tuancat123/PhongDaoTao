@@ -43,4 +43,15 @@ public class ThongTinChungController {
         service.deleteById(id);
         return "redirect:/thongtinchung";
     }
+
+    @GetMapping("/detail/{id}")
+    public String viewDetail(@PathVariable("id") int id, Model model) {
+        ThongTinChung thongTinChung = service.getById(id);
+        if (thongTinChung != null) {
+            model.addAttribute("ttc", thongTinChung);
+            return "thongtinchung-chitiet";
+        } else {
+            return "redirect:/thongtinchung";
+        }
+    }
 }

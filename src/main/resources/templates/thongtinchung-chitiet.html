@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi tiết CTĐT</title>
+    <link rel="stylesheet" th:href="@{/css/thongtinchung-chitiet.css}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>2. Thông tin chung về CTĐT ngành <span th:text="${ttc.nganh}"></span></h2>
+
+<table border="1">
+    <tr>
+        <td>1</td>
+        <td>Tên gọi của CTĐT</td>
+        <td th:text="${ttc.tenCtdt}">Tên CTĐT</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Bậc đào tạo</td>
+        <td th:text="${ttc.trinhDo}">Trình độ</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Loại bằng tốt nghiệp</td>
+        <td>Kỹ sư</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Loại hình đào tạo</td>
+        <td th:text="${ttc.heDaoTao}">Hệ đào tạo</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Thời gian đào tạo</td>
+        <td th:text="${ttc.thoiGianDaoTao}">Thời gian</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Khối lượng kiến thức toàn khoá</td>
+        <td th:text="${ttc.tongTinChi + ' tín chỉ'}">Tổng tín chỉ</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Đối tượng tuyển sinh</td>
+        <td>Thí sinh tốt nghiệp THPT hoặc tương đương</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Quy trình đào tạo</td>
+        <td>Học chế tín chỉ</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Ngôn ngữ sử dụng</td>
+        <td>Tiếng Việt</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Đơn vị quản lý</td>
+        <td th:text="${ttc.khoaQuanLy}">Khoa</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Website</td>
+        <td><a href="http://fit.sgu.edu.vn/" target="_blank">http://fit.sgu.edu.vn/</a></td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Thông tin khác</td>
+        <td th:text="'CTĐT được ban hành năm ' + ${ttc.namBanHanh}">Năm ban hành</td>
+    </tr>
+</table>
+
+
+<br>
+<a th:href="@{/thongtinchung}">← Quay lại danh sách CTĐT</a>
+</body>
+</html>

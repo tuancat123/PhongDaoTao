@@ -43,4 +43,11 @@ public class KhoiKienThucController {
         service.deleteById(id);
         return "redirect:/khoikienthuc";
     }
+
+    @GetMapping("/thongke")
+    public String thongKeSoTinChi(Model model) {
+        model.addAttribute("thongKeList", service.thongKeSoTinChi());
+        return "thongke-tinchi";
+    }
+
 }

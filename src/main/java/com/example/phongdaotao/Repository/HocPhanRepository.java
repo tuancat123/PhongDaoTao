@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface HocPhanRepository extends JpaRepository<HocPhan, Integer>{
 
-//    List<HocPhan> findByNhomId(int nhomId); //
+    //List<HocPhan> findByNhomId(int nhomId);
+    List<HocPhan> findByNhomKienThuc_Id(int nhomId);
+
 
 
 
