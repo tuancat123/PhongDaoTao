@@ -42,6 +42,8 @@ public class GiangVien {
     @Column(name = "trangThai")
     private String trangThai;
 
+    @Column(name = "khoa")
+    private String khoa;
 
 
     // Getters & Setters
@@ -133,4 +135,8 @@ public class GiangVien {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
+
+    public String getKhoa(){return khoa;}
+
+    public void setKhoa(String khoa){ this.khoa = khoa;}
 }

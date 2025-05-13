@@ -37,6 +37,18 @@ public class GiangVienService {
         repository.deleteById(id);
     }
 
+    public long countAllGiangVien(){
+        return repository.count();
+    }
+
+    public List<Object[]> countGiangVienByKhoa(){
+        return repository.countByKhoa();
+    }
+
+    public long countGiangVien(){
+        return repository.count();
+    }
+
 
 }
 

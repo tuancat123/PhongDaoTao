@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Danh sách Phân công giảng dạy</title>
+  <link rel="stylesheet" th:href="@{/css/phanconggiangday.css}">
+</head>
+<body>
+<h1>Danh sách Phân công giảng dạy</h1>
+<a th:href="@{/phanconggiangday/add}">Thêm mới</a>
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nhóm ID</th>
+    <th>Giảng viên ID</th>
+    <th>Vai trò</th>
+    <th>Hành động</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item : ${phanCongList}">
+    <td th:text="${item.id}"></td>
+    <td th:text="${item.nhomId}"></td>
+    <td th:text="${item.giangVienId}"></td>
+    <td th:text="${item.vaiTro}"></td>
+    <td>
+      <a th:href="@{/phancong/edit/{id}(id=${item.id})}">Sửa</a> |
+      <a th:href="@{/phancong/delete/{id}(id=${item.id})}" onclick="return confirm('Xoá phân công này?')">Xoá</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

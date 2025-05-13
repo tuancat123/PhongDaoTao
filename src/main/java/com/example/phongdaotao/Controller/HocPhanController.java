@@ -70,6 +70,17 @@ public class HocPhanController {
         return "redirect:/hocphan";
     }
 
+    @GetMapping("/hocphan/search")
+    public String searchHocPhan(@RequestParam("keyword") String keyword, Model model) {
+        List<HocPhan> list = hocPhanService.searchHocPhan(keyword);
+        List<KhoiKienThuc> nhomList = khoiKienThucService.getAll();
+        model.addAttribute("hocphanList", list);
+        model.addAttribute("nhomList", nhomList);
+        model.addAttribute("keyword", keyword);
+        return "hocphan";
+    }
+
+
 
 }
 

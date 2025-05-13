@@ -7,6 +7,12 @@
 </head>
 <body>
 
+<form th:action="@{/hocphan/search}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="Tìm kiếm học phần...">
+    <button type="submit">Tìm</button>
+</form>
+
+
 <h1>Danh sách Học Phần</h1>
 
 <form th:action="@{/hocphan/nhom}" method="get">
@@ -22,6 +28,9 @@
 
 <a th:href="@{/hocphan/add}">
     <button>Thêm Học Phần</button>
+</a>
+<a href="/hocphan" class="reset-button">
+    <button>Reset danh sách</button>
 </a>
 
 <table>

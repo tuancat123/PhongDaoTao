@@ -31,6 +31,15 @@ public class HocPhanService {
         return hocPhanRepository.findByNhomKienThuc_Id(nhomId);
     }
 
+    public List<HocPhan> searchHocPhan(String keyword) {
+        return hocPhanRepository.searchByKeyword(keyword);
+    }
+
+    public long countHocPhan(){
+        return hocPhanRepository.count();
+    }
+
+
 
 }
 

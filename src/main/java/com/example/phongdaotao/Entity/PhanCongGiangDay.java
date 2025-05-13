@@ -9,11 +9,12 @@ public class PhanCongGiangDay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    private String namHoc;
-    private String maHocPhan;
-    private String maGiangVien;
-    private String maNhomLop;
+    @Column(name = "nhomId")
+    private int nhomId;
+    @Column(name= "giangVienId")
+    private int giangVienId;
+    @Column(name= "vaiTro")
+    private String vaiTro;
 
     public int getId() {
         return id;
@@ -22,37 +23,24 @@ public class PhanCongGiangDay {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getNamHoc() {
-        return namHoc;
+    public int getNhomId(){
+        return nhomId;
+    }
+    public void setNhomId(int nhomId){
+        this.nhomId = nhomId;
+    }
+    public int getGiangVienId(){
+        return giangVienId;
+    }
+    public void setGiangVienId(int giangVienId){
+        this.giangVienId = giangVienId;
+    }
+    public String getVaiTro(){
+        return vaiTro;
+    }
+    public void setVaiTro(String vaiTro){
+        this.vaiTro = vaiTro;
     }
 
-    public void setNamHoc(String namHoc) {
-        this.namHoc = namHoc;
-    }
-
-    public String getMaHocPhan() {
-        return maHocPhan;
-    }
-
-    public void setMaHocPhan(String maHocPhan) {
-        this.maHocPhan = maHocPhan;
-    }
-
-    public String getMaGiangVien() {
-        return maGiangVien;
-    }
-
-    public void setMaGiangVien(String maGiangVien) {
-        this.maGiangVien = maGiangVien;
-    }
-
-    public String getMaNhomLop() {
-        return maNhomLop;
-    }
-
-    public void setMaNhomLop(String maNhomLop) {
-        this.maNhomLop = maNhomLop;
-    }
 }
 

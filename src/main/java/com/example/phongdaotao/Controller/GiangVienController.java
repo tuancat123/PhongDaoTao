@@ -5,6 +5,7 @@ import com.example.phongdaotao.Entity.User;
 import com.example.phongdaotao.Service.GiangVienService;
 import com.example.phongdaotao.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,6 +68,17 @@ public class GiangVienController {
     public String deleteGiangVien(@PathVariable("id") int id) {
         service.deleteGiangVienById(id);
         return "redirect:/giangvien";
+    }
+
+    @GetMapping("/giangvien/thongke")
+    public String thongKeGiangVien(Model model){
+        Long tongSoGiangVien = service.countAllGiangVien();
+        List<Object[]> thongKeByKhoa = service.countGiangVienByKhoa();
+
+        model.addAttribute("tongSoGiangVien", tongSoGiangVien);
+        model.addAttribute("thongKeByKhoa", thongKeByKhoa);
+
+        return "thongke-giangvien";
     }
 
 

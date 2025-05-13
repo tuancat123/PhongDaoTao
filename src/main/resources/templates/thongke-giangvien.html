@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thống kê Giảng viên</title>
+  <link rel="stylesheet" th:href="@{/css/thongke-giangvien.css}">
+</head>
+<body>
+<h2>📊 Thống kê Giảng viên</h2>
+
+<p><strong>Tổng số giảng viên:</strong> <span th:text="${tongSoGiangVien}"></span></p>
+
+<h3>Số lượng giảng viên theo khoa:</h3>
+<table border="1">
+  <tr>
+    <th>Khoa quản lý</th>
+    <th>Số lượng giảng viên</th>
+  </tr>
+  <tr th:each="item : ${thongKeByKhoa}">
+  <td th:text="${item[0]}">Khoa</td>
+    <td th:text="${item[1]}">Số lượng</td>
+  </tr>
+</table>
+
+
+<br>
+<a th:href="@{/giangvien}">← Quay lại danh sách giảng viên</a>
+</body>
+</html>

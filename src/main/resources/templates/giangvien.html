@@ -5,6 +5,7 @@
     <title>Danh sách Giảng Viên</title>
     <link rel="stylesheet" th:href="@{/css/giangvien.css}">
 </head>
+
 <body>
 <h1>Danh sách Giảng Viên</h1>
 
@@ -22,6 +23,7 @@
         <th>Học hàm</th>
         <th>Trình độ</th>
         <th>Đơn vị công tác</th>
+        <th>Khoa</th>
         <th>Trạng thái</th>
         <th>Thao tác</th>
     </tr>
@@ -36,6 +38,7 @@
         <td th:text="${gv.hocHam}"></td>
         <td th:text="${gv.trinhDo}"></td>
         <td th:text="${gv.donViCongTac}"></td>
+        <td th:text="${gv.khoa}">Khoa</td>
         <td th:text="${gv.trangThai} == '1' ? 'Đang công tác' : 'Nghỉ việc'"></td>
         <td>
             <a th:href="@{'/giangvien/edit/' + ${gv.id}}">✏️ Sửa</a> |

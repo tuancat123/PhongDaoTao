@@ -19,17 +19,18 @@
 
   <main class="dashboard">
     <div class="dashboard-card red">
-      <p class="number">20</p>
+      <p class="number" th:text="${hocPhanCount}">0</p>
       <p class="label">Học phần</p>
     </div>
     <div class="dashboard-card blue">
-      <p class="number">5</p>
+      <p class="number" th:text="${giangVienCount}">0</p>
       <p class="label">Giảng viên</p>
     </div>
     <div class="dashboard-card green">
-      <p class="number">10</p>
+      <p class="number" th:text="${userCount}">0</p>
       <p class="label">Người dùng</p>
     </div>
+
   </main>
 </div>
 </body>
