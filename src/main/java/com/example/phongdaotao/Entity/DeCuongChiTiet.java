@@ -11,13 +11,22 @@ public class DeCuongChiTiet {
     private int id;
 
     @Column(unique = true)
-    private String maHocPhan;
+    private String hocPhanId;
+
+    @Column(columnDefinition = "TEXT")
+    private String mucTieu;
 
     @Column(columnDefinition = "TEXT")
     private String noiDung;
 
     @Column(columnDefinition = "TEXT")
+    private String phuongPhapGiangDay;
+
+    @Column(columnDefinition = "TEXT")
     private String taiLieuThamKhao;
+
+    @Column(columnDefinition = "TEXT")
+    private String TrangThai;
 
     public int getId() {
         return id;
@@ -27,12 +36,12 @@ public class DeCuongChiTiet {
         this.id = id;
     }
 
-    public String getMaHocPhan() {
-        return maHocPhan;
+    public String getHocPhanId() {
+        return hocPhanId;
     }
 
-    public void setMaHocPhan(String maHocPhan) {
-        this.maHocPhan = maHocPhan;
+    public void setHocPhanId(String hocPhanId) {
+        this.hocPhanId = hocPhanId;
     }
 
     public String getNoiDung() {
@@ -50,5 +59,17 @@ public class DeCuongChiTiet {
     public void setTaiLieuThamKhao(String taiLieuThamKhao) {
         this.taiLieuThamKhao = taiLieuThamKhao;
     }
+
+    public String getPhuongPhapGiangDay() { return phuongPhapGiangDay; }
+
+    public void setPhuongPhapGiangDay(String phuongPhapGiangDay) { this.phuongPhapGiangDay = phuongPhapGiangDay; }
+
+    public String getMucTieu() { return mucTieu; }
+
+    public void setMucTieu(String mucTieu) { this.mucTieu = mucTieu; }
+
+    public String getTrangThai() { return TrangThai; }
+
+    public void setTrangThai(String trangThai) { TrangThai = trangThai; }
 }
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Đề Cương</title>
+  <link rel="stylesheet" th:href="@{/css/add-decuongchitiet.css}">
+</head>
+<body>
+
+<h1 th:text="${#strings.isEmpty(dcct.id) ? 'Thêm Đề cuơng môn học' : 'Chỉnh sửa Đề cương môn học'}"></h1>
+
+<form th:action="@{/decuongchitiet/save}" th:object="${dcct}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <label>Mã đề cương:</label>
+  <input type="text" th:field="*{id}" required/><br>
+
+  <label>Mã học phần</label>
+  <input type="text" th:field="*{hocPhanId}" required/><br>
+
+  <label>Mục tiêu</label>
+  <input type="text" th:field="*{mucTieu}" required/><br>
+
+  <label>Nội dung</label>
+  <input type="text" th:field="*{noiDung}"/><br>
+
+  <label>Phương pháp giảng dạy</label>
+  <input type="text" th:field="*{phuongPhapGiangDay}" required/><br>
+
+  <label>Tài liệu tham khảo</label>
+  <input type="text" th:field="*{taiLieuThamKhao}"/><br>
+
+  <label>Trạng thái</label>
+  <input type="text" th:field="*{TrangThai}" required/><br>
+
+  <button type="submit">Lưu</button>
+  <a th:href="@{/decuongchitiet}">
+    <button type="button">Quay lại</button>
+  </a>
+</form>
+
+</body>
+</html>

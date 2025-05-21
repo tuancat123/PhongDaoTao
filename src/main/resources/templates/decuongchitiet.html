@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đề cương chi tiết học phần</title>
+    <link rel="stylesheet" th:href="@{/css/DeCuongChiTiet.css}">
+</head>
+<body>
+<a href="/">Trang chủ</a>
+<h1>Danh sách Đề cương</h1>
+
+<a th:href="@{/decuongchitiet/add}">
+    <button>Thêm đề cương chi tiết</button>
+</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Mã đề cương</th>
+        <th>Mã học phần</th>
+        <th>Mục tiêu</th>
+        <th>Nội dung</th>
+        <th>Phương pháp giảng dạy</th>
+        <th>Tài liệu tham khảo</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dcct : ${DeCuongChiTietList}">
+        <td th:text="${dcct.id}"></td>
+        <td th:text="${dcct.hocPhanId}">
+        <td th:text="${dcct.mucTieu}"></td>
+        <td th:text="${dcct.noiDung}"></td>
+        <td th:text="${dcct.phuongPhapGiangDay}"></td>
+        <td th:text="${dcct.taiLieuThamKhao}"></td>
+        <td th:text="${dcct.TrangThai}"></td>
+        <td>
+        <a th:href="@{'/decuongchitiet/edit/{id}'(id=${dcct.id})}"><button>Sửa</button></a>
+        <a th:href="@{'/decuongchitiet/delete/{id}'(id=${dcct.id})}" onclick="return confirm('Bạn có chắc muốn xóa đề cương này ?')"><button>Xóa</button></a>
+        </td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(DeCuongChiTietList)}">
+        <td colspan="8" style="text-align:center;">Không có dữ liệu</td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
