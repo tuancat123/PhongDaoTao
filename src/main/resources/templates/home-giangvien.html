@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang chủ Giảng viên</title>
+  <link rel="stylesheet" th:href="@{/css/home-giangvien.css}">
+</head>
+<body>
+<div class="container">
+  <aside class="sidebar">
+    <h2>👨‍🏫 GIẢNG VIÊN</h2>
+    <ul class="menu">
+      <li><a href="/home-giangvien">🏠 Trang chủ</a></li>
+      <li><a href="/home-giangvien/thongtin">👤 Thông tin</a></li>
+      <li><a href="/phanconggiangday">📚 Phân công giảng dạy</a></li>
+    </ul>
+    <a href="/logout">Đăng xuất</a>
+
+  </aside>
+
+  <main class="dashboard">
+    <h1>Chào mừng, <span th:text="${giangVienTen}">Giảng viên</span>!</h1>
+
+    <div class="dashboard-card blue">
+      <p class="number" th:text="${soLuongPhanCong}">0</p>
+      <p class="label">Lớp đang giảng dạy</p>
+    </div>
+
+    <div class="dashboard-card green">
+      <p class="number" th:text="${tongTiet}">0</p>
+      <p class="label">Tổng số tiết</p>
+    </div>
+  </main>
+</div>
+</body>
+</html>

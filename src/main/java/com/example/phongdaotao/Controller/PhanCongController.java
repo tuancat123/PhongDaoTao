@@ -1,6 +1,7 @@
 package com.example.phongdaotao.Controller;
 
 import com.example.phongdaotao.Entity.PhanCongGiangDay;
+import com.example.phongdaotao.Entity.PhanCongThongKe;
 import com.example.phongdaotao.Service.PhanCongGiangDayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,6 +51,13 @@ public class PhanCongController {
     public String delete(@PathVariable("id") int id) {
         phanCongGiangDayService.delete(id);
         return "redirect:/phanconggiangday";
+    }
+
+    @GetMapping("/thongke")
+    public String thongKePhanCong(Model model) {
+        List<PhanCongThongKe> danhSach = phanCongGiangDayService.thongKePhanCong();
+        model.addAttribute("thongKeList", danhSach);
+        return "thongke-phancong";
     }
 
 }

@@ -24,8 +24,8 @@
     <td th:text="${item.giangVienId}"></td>
     <td th:text="${item.vaiTro}"></td>
     <td>
-      <a th:href="@{/phancong/edit/{id}(id=${item.id})}">Sửa</a> |
-      <a th:href="@{/phancong/delete/{id}(id=${item.id})}" onclick="return confirm('Xoá phân công này?')">Xoá</a>
+      <a th:href="@{/phanconggiangday/edit/{id}(id=${item.id})}">Sửa</a> |
+      <a th:href="@{/phanconggiangday/delete/{id}(id=${item.id})}" onclick="return confirm('Xoá phân công này?')">Xoá</a>
     </td>
   </tr>
   </tbody>

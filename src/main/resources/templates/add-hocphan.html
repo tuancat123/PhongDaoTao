@@ -27,8 +27,14 @@
     <label>Số tiết thực hành:</label>
     <input type="number" th:field="*{soTietThucHanh}" required/><br>
 
-    <label>Nhóm ID:</label>
-    <input type="number" th:field="*{nhomId}"/><br>
+    <label>Nhóm kiến thức:</label>
+    <select th:field="*{nhomKienThuc}" class="form-control">
+        <option th:each="nhom : ${nhomList}"
+                th:value="${nhom.id}"
+                th:text="${nhom.tenNhom}">
+        </option>
+    </select>
+
 
     <label>Loại học phần:</label>
     <input type="text" th:field="*{loaiHp}" /><br>

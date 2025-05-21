@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Thông tin giảng viên</title>
+  <link rel="stylesheet" th:href="@{/css/thongtin.css}" />
+</head>
+<body>
+<h2>Thông tin giảng viên</h2>
+
+<div th:if="${user != null}">
+  <p><strong>Họ tên:</strong> <span th:text="${user.hoTen}"></span></p>
+  <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+  <p><strong>Vai trò:</strong> <span th:text="${user.vaiTro}"></span></p>
+</div>
+
+<div th:if="${user == null}">
+  <p>Không tìm thấy thông tin giảng viên.</p>
+</div>
+</body>
+
+</html>

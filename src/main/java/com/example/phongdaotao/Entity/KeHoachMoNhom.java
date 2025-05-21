@@ -15,7 +15,7 @@ public class KeHoachMoNhom {
     @Column(unique = true)
     private String maNhom;
 
-    private String hocPhanId;
+    private int hocPhanId;
     private String namHoc;
 
     private int hocKy;
@@ -39,10 +39,10 @@ public class KeHoachMoNhom {
         this.maNhom = maNhom;
     }
 
-    public String getHocPhanId() {
+    public int getHocPhanId() {
         return hocPhanId;
     }
-    public void setHocPhanId(String hocPhanId) {
+    public void setHocPhanId(int hocPhanId) {
         this.hocPhanId = hocPhanId;
     }
 

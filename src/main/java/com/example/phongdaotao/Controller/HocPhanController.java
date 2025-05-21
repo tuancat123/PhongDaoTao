@@ -42,6 +42,7 @@ public class HocPhanController {
     @GetMapping("/hocphan/add")
     public String showAddForm(Model model) {
         model.addAttribute("hocphan", new HocPhan());
+        model.addAttribute("nhomList", khoiKienThucService.getAll());
         return "add-hocphan";
     }
 
@@ -60,6 +61,7 @@ public class HocPhanController {
             return "redirect:/hocphan";
         }
         model.addAttribute("hocphan", hocPhan);
+        model.addAttribute("nhomList", khoiKienThucService.getAll());
         return "add-hocphan"; // dùng chung form với thêm
     }
 

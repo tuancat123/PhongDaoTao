@@ -29,6 +29,7 @@ public class HocPhanService {
     public List<HocPhan> getHocPhanTheoNhom(int nhomId) {
 //        return hocPhanRepository.findByNhomId(nhomId);
         return hocPhanRepository.findByNhomKienThuc_Id(nhomId);
+        //return hocPhanRepository.findByNhomId(nhomId);
     }
 
     public List<HocPhan> searchHocPhan(String keyword) {

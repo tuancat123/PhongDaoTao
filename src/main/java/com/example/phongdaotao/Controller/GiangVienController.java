@@ -4,6 +4,7 @@ import com.example.phongdaotao.Entity.GiangVien;
 import com.example.phongdaotao.Entity.User;
 import com.example.phongdaotao.Service.GiangVienService;
 import com.example.phongdaotao.Service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.ui.Model;
@@ -80,6 +81,8 @@ public class GiangVienController {
 
         return "thongke-giangvien";
     }
+
+
 
 
 }

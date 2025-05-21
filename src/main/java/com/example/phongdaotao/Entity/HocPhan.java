@@ -37,6 +37,7 @@ public class HocPhan {
     @ManyToOne
     @JoinColumn(name = "nhomId")
     private KhoiKienThuc nhomKienThuc;
+    //private Integer nhomId;
 
 
 

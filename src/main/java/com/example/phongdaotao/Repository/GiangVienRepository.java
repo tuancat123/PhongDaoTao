@@ -15,6 +15,7 @@ public interface GiangVienRepository extends JpaRepository<GiangVien, Integer> {
     List<Object[]> countByKhoa();
 
 
+    GiangVien findByUserId(int userId);
 
 }
 
